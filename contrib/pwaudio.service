@@ -1,0 +1,12 @@
+[Unit]
+Description=Persistent application mute for PipeWire
+After=pipewire.service wireplumber.service
+Wants=pipewire.service wireplumber.service
+
+[Service]
+ExecStart=%h/.cargo/bin/pwaudio daemon
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target
